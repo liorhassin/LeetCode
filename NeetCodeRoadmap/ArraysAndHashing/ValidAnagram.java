@@ -88,6 +88,23 @@ public class ValidAnagram {
         return true;
     }
 
+    public static boolean validAnagramUpgradedSolution(String s, String t){
+        s = stringSimplify(s);
+        t = stringSimplify(t);
+        if(s.length() != t.length()) return false;
+        int[] charCount = new int[26];
+        Arrays.fill(charCount, 0);
+
+        for(int i = 0; i < s.length(); i++){
+            charCount[s.charAt(i)-'a']++;
+            charCount[t.charAt(i)-'a']--;
+        }
+        for(Integer count: charCount){
+            if(count!=0) return false;
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
 
         System.out.println("Checking bad solution:");
@@ -113,6 +130,14 @@ public class ValidAnagram {
         System.out.println(validAnagramGoodSolution("New York Times   ", "monkeyswrite")); //Expected true
         System.out.println(validAnagramGoodSolution("triple", "double")); //Expected false
         System.out.println(validAnagramGoodSolution("listen", "silent")); //Expected true
+        System.out.println("----------------------------------------------------------------");
+
+        System.out.println("Checking upgraded solution:");
+        System.out.println(validAnagramUpgradedSolution("Lior", "roil")); //Expected true
+        System.out.println(validAnagramUpgradedSolution("broken", "token")); //Expected false
+        System.out.println(validAnagramUpgradedSolution("New York Times   ", "monkeyswrite")); //Expected true
+        System.out.println(validAnagramUpgradedSolution("triple", "double")); //Expected false
+        System.out.println(validAnagramUpgradedSolution("listen", "silent")); //Expected true
         System.out.println("----------------------------------------------------------------");
     }
 }
