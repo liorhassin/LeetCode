@@ -11,13 +11,14 @@ public class GroupAnagrams {
      * @return desired string after manipulation.
      */
     public static String stringSimplify(String s){
-        if(s != null) return s.replaceAll(" ", "").toLowerCase();
-        return null;
+        return s.replaceAll(" ", "").toLowerCase();
     }
 
     public static List<List<String>> groupAnagramsBadSolution(String[] strs){
-        Map<Map<Character, Integer>, Integer> countingMap = new HashMap<>();
         List<List<String>> resultMatrix = new ArrayList<>();
+        if(strs.length == 0) return resultMatrix;
+        for(int i = 0; i < strs.length; i++) strs[i] = stringSimplify(strs[i]);
+        Map<Map<Character, Integer>, Integer> countingMap = new HashMap<>();
         for(String str : strs){
             Map<Character, Integer> currentWordCounter = new HashMap<>();
             for(int i = 0; i < str.length(); i++){
@@ -29,27 +30,26 @@ public class GroupAnagrams {
             }
             resultMatrix.get(countingMap.get(currentWordCounter)).add(str);
         }
-        if(resultMatrix.size()>0){
-            return resultMatrix;
-        }
-        return new ArrayList<>();
+        return resultMatrix;
     }
 
     public static List<List<String>> groupAnagramsDecentSolution(String[] strs){
-        Map<int[], Integer> countingMap = new HashMap<>();
         List<List<String>> resultMatrix = new ArrayList<>();
+        if(strs.length == 0) return resultMatrix;
+        for(int i = 0; i < strs.length; i++) strs[i] = stringSimplify(strs[i]);
+        Map<String, List<String>> countingMap = new HashMap<>();
         for(String str: strs){
             int[] currentWordCounter = new int[26];
-            Arrays.fill(currentWordCounter, 0);
             for(int i = 0; i < str.length(); i++){
                 currentWordCounter[str.charAt(i)-'a']++;
             }
-            if(!countingMap.containsKey(currentWordCounter)){
-                countingMap.put(currentWordCounter, resultMatrix.size());
-                resultMatrix.add(new ArrayList<>());
+            String arrayToKey = Arrays.toString(currentWordCounter);
+            if(!countingMap.containsKey(arrayToKey)){
+                countingMap.put(arrayToKey, new ArrayList<>());
             }
-            resultMatrix.get(countingMap.get(currentWordCounter)).add(str);
+            countingMap.get(arrayToKey).add(str);
         }
+        resultMatrix.addAll(countingMap.values());
         return resultMatrix;
     }
 
