@@ -33,12 +33,7 @@ public class GroupAnagrams {
         return resultMatrix;
     }
 
-<<<<<<< HEAD
     public static List<List<String>> groupAnagramsGoodSolution(String[] strs){
-        Map<int[], Integer> countingMap = new HashMap<>();
-=======
-    public static List<List<String>> groupAnagramsDecentSolution(String[] strs){
->>>>>>> cadee4845b434bc708ea92db52b74ba60972717a
         List<List<String>> resultMatrix = new ArrayList<>();
         if(strs.length == 0) return resultMatrix;
         for(int i = 0; i < strs.length; i++) strs[i] = stringSimplify(strs[i]);
