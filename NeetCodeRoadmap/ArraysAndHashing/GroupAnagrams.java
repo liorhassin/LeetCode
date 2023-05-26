@@ -35,7 +35,7 @@ public class GroupAnagrams {
         return new ArrayList<>();
     }
 
-    public static List<List<String>> groupAnagramsDecentSolution(String[] strs){
+    public static List<List<String>> groupAnagramsGoodSolution(String[] strs){
         Map<int[], Integer> countingMap = new HashMap<>();
         List<List<String>> resultMatrix = new ArrayList<>();
         for(String str: strs){
@@ -60,8 +60,8 @@ public class GroupAnagrams {
         System.out.println("---------------------------------------------------------");
 
         System.out.println("Checking upgraded solution:");
-        System.out.println(groupAnagramsDecentSolution(new String[]{"lior", "roil", "test", "fire", "a", "b", "rife"}));
-        System.out.println(groupAnagramsDecentSolution(new String[]{"lior", "roil", "cat", "atc", "c", "b"}));
+        System.out.println(groupAnagramsGoodSolution(new String[]{"lior", "roil", "test", "fire", "a", "b", "rife"}));
+        System.out.println(groupAnagramsGoodSolution(new String[]{"lior", "roil", "cat", "atc", "c", "b"}));
         System.out.println("---------------------------------------------------------");
     }
 }
