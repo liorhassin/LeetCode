@@ -33,7 +33,7 @@ public class GroupAnagrams {
         return resultMatrix;
     }
 
-    public static List<List<String>> groupAnagramsDecentSolution(String[] strs){
+    public static List<List<String>> groupAnagramsGoodSolution(String[] strs){
         List<List<String>> resultMatrix = new ArrayList<>();
         if(strs.length == 0) return resultMatrix;
         for(int i = 0; i < strs.length; i++) strs[i] = stringSimplify(strs[i]);
@@ -60,8 +60,8 @@ public class GroupAnagrams {
         System.out.println("---------------------------------------------------------");
 
         System.out.println("Checking upgraded solution:");
-        System.out.println(groupAnagramsDecentSolution(new String[]{"lior", "roil", "test", "fire", "a", "b", "rife"}));
-        System.out.println(groupAnagramsDecentSolution(new String[]{"lior", "roil", "cat", "atc", "c", "b"}));
+        System.out.println(groupAnagramsGoodSolution(new String[]{"lior", "roil", "test", "fire", "a", "b", "rife"}));
+        System.out.println(groupAnagramsGoodSolution(new String[]{"lior", "roil", "cat", "atc", "c", "b"}));
         System.out.println("---------------------------------------------------------");
     }
 }
