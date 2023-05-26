@@ -2,7 +2,6 @@ package NeetCodeRoadmap.ArraysAndHashing;
 
 import java.util.*;
 import java.util.Map.Entry;
-import java.util.stream.Collectors;
 
 public class KMostFrequentNumbers {
 
@@ -31,8 +30,8 @@ public class KMostFrequentNumbers {
      * Using a map to count numbers, while counting update another map which maps from count to a list of all numbers
      * that has the same count.
      * Good solution! | Time-Complexity: O(n) + O(k) = O(n) *K<=n | Space-Complexity: O(n)
-     * @param numbers
-     * @return
+     * @param numbers - Given array to find k most frequent numbers on.
+     * @return new array with the k most frequent numbers.
      */
     public static int[] kMostFrequentNumbersGoodSolution(int[] numbers, int k){
         Map<Integer, Integer> countingMap = new HashMap<>();
@@ -61,7 +60,6 @@ public class KMostFrequentNumbers {
                 }
             }
         }
-
         return finalResult.stream().mapToInt(x->x).toArray();
     }
 
@@ -71,8 +69,9 @@ public class KMostFrequentNumbers {
      * Upgraded version because list is faster to work on and with map solution we need to pull all values and then
      * work our way to build the K elements, With list we just iterate on indexes until k elements was found.
      * Upgraded solution! | Time-Complexity: O(n) | Space-Complexity: O(n)
-     * @param numbers
-     * @return
+     * TODO - Implement better version with less Space-Complexity.
+     * @param numbers - Given array to find k most frequent numbers on.
+     * @return new array with the k most frequent numbers.
      */
     public static int[] kMostFrequentNumbersUpgradedSolution(int[] numbers, int k){
 
