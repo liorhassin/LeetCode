@@ -37,8 +37,8 @@ public class LongestConsecutiveSequence {
      * Example current number is 4 and 3 is within the numberSet. Then it means we don't need to calculate subSequence length for 4.
      * When 3 turns comes up the algorithm will catch 4 and all the rest for the biggest sequence length.
      * Decent solution! | Time-Complexity: O(n) | Space-Complexity: O(n)
-     * @param nums
-     * @return
+     * @param nums - Given array of numbers to check for sequence.
+     * @return int - The length of the longest consecutive sequence.
      */
     public static int longestConsecutiveSequenceGoodSolution(int[] nums){
         if(nums.length == 0) return 0;
